@@ -7,6 +7,11 @@ const productSchema = new mongoose.Schema({
         maxLength: 50, 
         minLength: 3
     }, 
+    description:{
+        type: String,
+        maxLength: 300,
+        default:""
+    },
     category: {
         type: String,
         enum: ['Car', 'Electronics', 'Clothing', 'Beauty', 'Machinery', 'Book', 'Art', 'Jewelry', 'Other'],
@@ -18,10 +23,10 @@ const productSchema = new mongoose.Schema({
     },
     location:{
         type: String,
-        enum: ['Addis Ababe', 'Adama', 'Hawassa', 'Jimma', 'Gonder', 'Bahir Dar', 'Mekele'],
+        enum: ['Addis Ababa', 'Adama', 'Hawassa', 'Jimma', 'Gonder', 'Bahir Dar', 'Mekele'],
         required: [true, 'Please provide the location of the seller!']
     },
-    deliver_available:{
+    delivery_available:{
         type: Boolean,
         default: false
     },
