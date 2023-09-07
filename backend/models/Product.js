@@ -16,15 +16,16 @@ const productSchema = new mongoose.Schema(
     category: {
       type: String,
       enum: [
-        "Car",
-        "Electronics",
-        "Clothing",
-        "Beauty",
-        "Machinery",
-        "Book",
-        "Art",
+        "Bag",
+        "Dress",
+        "Jacket",
+        "Shirt",
         "Jewelry",
-        "Other",
+        "Sweater",
+        "Sunglass",
+        "Shoes",
+        "Pant",
+        "Other"
       ],
       default: "Other",
     },
@@ -45,21 +46,34 @@ const productSchema = new mongoose.Schema(
       ],
       required: [true, "Please provide the location of the seller!"],
     },
+    sex:{
+      type: String,
+      enum: ["Male", "Female", "Both"],
+      default: "Both"
+    },
+    size:{
+      type: String,
+      enum: ["S","M", "L", "XL", "XXL"],
+      required: [true, "Please specify the size!"]
+    },
     delivery_available: {
       type: Boolean,
       default: false,
     },
 
-    image: {
-      public_id: {
-        type: String,
-        required: [true, "Please provide the image of the product!"],
+    images: [
+      {
+        public_id: {
+          type: String,
+          required: [true, "Please provide the public_id of the image!"],
+        },
+        url: {
+          type: String,
+          required: [true, "Please provide the URL of the image!"],
+        },
       },
-      url: {
-        type: String,
-        required: [true, "Please provide the image of the product!"],
-      },
-    },
+    ],
+    
     status: {
       type: String,
       enum: ["Sold", "On_Sale"],

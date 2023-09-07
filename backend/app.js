@@ -51,11 +51,11 @@ if (!fs.existsSync(uploadDir)) {
 // Image upload route
 const Upload = require('./multer');
 
-app.use('/api/v1/img', Upload.array('image'), async (req, res) => {
-    // Handle image upload logic here
-    console.log('Image upload route hit');
-    res.send('Uploaded successfully');
-});
+// app.use('/api/v1/img', Upload.array('image',2), async (req, res) => {
+//     // Handle image upload logic here
+//     console.log('Image upload route hit');
+//     res.send('Uploaded successfully');
+// });
 
 // Home page
 app.get('/api/v1', (req, res) => {

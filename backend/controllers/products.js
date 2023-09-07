@@ -25,33 +25,36 @@ const getMyProducts = async (req, res) => {
 };
 
 const createProduct = async (req, res) => {
-  const imagePath = req.file.path;
-  // console.log("the image path is ", imagePath);
-  // console.log("the req body is ", req.body);
+ 
+  const imagePaths = req.files.map((file) => file.path); 
 
-  const result = await cloudinary.uploader.upload(imagePath, {
-    use_filename: true,
-    folder: "file-upload",
-  });
+  // Upload all images to Cloudinary
+  const uploadPromises = imagePaths.map((imagePath) =>
+    cloudinary.uploader.upload(imagePath, {
+      use_filename: true,
+      folder: "file-upload",
+    })
+  );
+  
+  const uploadedResults = await Promise.all(uploadPromises);
 
-  // Remove the local image file
-  fs.unlinkSync(imagePath);
+  // Remove the local image files
+  imagePaths.forEach((imagePath) => fs.unlinkSync(imagePath));
 
-  // console.log('the upload image result is ', result);
-
-  // Remove the 'image' field from req.body
-  delete req.body.image;
-
-  // Add the Cloudinary URL to req.body
-  req.body.image = {
+  // Map Cloudinary results to an array of image objects
+  const images = uploadedResults.map((result) => ({
     public_id: result.public_id,
     url: result.secure_url,
-  }; // Assuming 'secure_url' contains the Cloudinary URL
+  }));
+
+  // Add the array of image objects to req.body
+  req.body.images = images;
 
   req.body.createdBy = req.user.userId;
   const product = await Product.create(req.body);
   res.status(StatusCodes.CREATED).json(product);
 };
+
 
 const deleteProduct = async (req, res) => {
   const {
@@ -67,12 +70,14 @@ const deleteProduct = async (req, res) => {
     throw new NotFoundError(`No product found with id ${productId}`);
   }
 
-  // Remove the image from Cloudinary
-  if (product.image.public_id) {
-  
-    // Delete the image from Cloudinary
-    const destroy = await cloudinary.uploader.destroy(product.image.public_id);
-    console.log("the destroyed image result is ", destroy);
+  // Delete all images from Cloudinary
+  if (product.images && product.images.length > 0) {
+    const destroyPromises = product.images.map((image) =>
+      cloudinary.uploader.destroy(image.public_id)
+    );
+
+    const destroyResults = await Promise.all(destroyPromises);
+    console.log("the destroyed image results are ", destroyResults);
   }
 
   // Delete the product from MongoDB
@@ -83,6 +88,7 @@ const deleteProduct = async (req, res) => {
 
   res.status(StatusCodes.OK).send("Deleted Successfully!");
 };
+
 
 module.exports = {
   getAllProduct,

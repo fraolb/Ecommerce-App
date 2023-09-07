@@ -9,7 +9,7 @@ const {  getMyProducts, createProduct, deleteProduct } = require("../controllers
 
 // router.route('/').get(getMyProducts).post(createProduct)
 router.get('/', getMyProducts)
-router.post('/', Upload.single('image'), createProduct)
+router.post('/', Upload.array('image',4), createProduct)
 router.route('/:id').delete(deleteProduct)
 
 module.exports = router
