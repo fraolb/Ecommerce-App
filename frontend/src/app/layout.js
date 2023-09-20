@@ -8,7 +8,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <ThemeRegistry>
-          <Nav>{children}</Nav>
+          {children}
         </ThemeRegistry>
       </body>
     </html>

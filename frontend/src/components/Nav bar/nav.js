@@ -26,12 +26,8 @@ import { IconButton, TextField, Divider } from "@mui/material";
 import Image from "next/image";
 import Logo from '../../Files/logo.png'
 
-export const metadata = {
-  title: "Next.js App Router + Material UI v5",
-  description: "Next.js App Router + Material UI v5",
-};
 
-const DRAWER_WIDTH = 240;
+const DRAWER_WIDTH = 220;
 
 const LINKS = [
   { text: "Home", href: "/", icon: HomeIcon },
@@ -91,7 +87,7 @@ const Nav = ({ children }) => {
             </IconButton>
           </Box>
           <Box>
-            <IconButton>
+            <IconButton component={Link} href={'./auth/login'} >
               <AccountCircleOutlinedIcon />
             </IconButton>
             <IconButton>
@@ -111,9 +107,10 @@ const Nav = ({ children }) => {
           <Box>Hello there </Box>
         </Box>
       </AppBar>
-      <Drawer
+      {/* <Drawer
         sx={{
           width: DRAWER_WIDTH,
+        
           flexShrink: 0,
           "& .MuiDrawer-paper": {
             width: DRAWER_WIDTH,
@@ -121,12 +118,13 @@ const Nav = ({ children }) => {
             top: ["48px", "56px", "64px"],
             height: "auto",
             bottom: 0,
+            // border:"none"
           },
         }}
         variant="permanent"
         anchor="left"
       >
-        <Divider />
+       
         <List>
           {LINKS.map(({ text, href, icon: Icon }) => (
             <ListItem key={href} disablePadding>
@@ -138,28 +136,22 @@ const Nav = ({ children }) => {
               </ListItemButton>
             </ListItem>
           ))}
+          <ListItem>
+            <ListItemButton>
+              <ListItemText primary="Category" />
+              
+            </ListItemButton>
+          </ListItem>
         </List>
-        <Divider sx={{ mt: "auto" }} />
-        <List>
-          {PLACEHOLDER_LINKS.map(({ text, icon: Icon }) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Icon />
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
+        
+      </Drawer> */}
       <Box
         component="main"
         sx={{
           flexGrow: 1,
           bgcolor: "background.default",
           ml: `${DRAWER_WIDTH}px`,
-          mt: ["48px", "56px", "64px"],
+          mt: ["68px", "76px", "94px"],
           p: 3,
         }}
       >

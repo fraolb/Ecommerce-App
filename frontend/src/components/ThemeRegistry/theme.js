@@ -16,9 +16,22 @@ const theme = createTheme({
     secondary: {
       main: '#FF5722',
     },
+
+    customColor1: {
+      main:"#16D937",
+      light:'#B6EBBF'
+    },
   },
   typography: {
     fontFamily: roboto.style.fontFamily,
+    fontSize: 14,
+    h1:{
+      fontSize: '2.5rem'
+    },
+    h5:{
+      fontSize: 14,
+      fontWeight:"bold"
+    }
   },
   components: {
     MuiAlert: {
