@@ -107,44 +107,7 @@ const Nav = ({ children }) => {
           <Box>Hello there </Box>
         </Box>
       </AppBar>
-      {/* <Drawer
-        sx={{
-          width: DRAWER_WIDTH,
-        
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            width: DRAWER_WIDTH,
-            boxSizing: "border-box",
-            top: ["48px", "56px", "64px"],
-            height: "auto",
-            bottom: 0,
-            // border:"none"
-          },
-        }}
-        variant="permanent"
-        anchor="left"
-      >
-       
-        <List>
-          {LINKS.map(({ text, href, icon: Icon }) => (
-            <ListItem key={href} disablePadding>
-              <ListItemButton component={Link} href={href}>
-                <ListItemIcon>
-                  <Icon />
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-          <ListItem>
-            <ListItemButton>
-              <ListItemText primary="Category" />
-              
-            </ListItemButton>
-          </ListItem>
-        </List>
-        
-      </Drawer> */}
+
       <Box
         component="main"
         sx={{

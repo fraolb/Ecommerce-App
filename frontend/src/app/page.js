@@ -2,21 +2,13 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
 import Drawer from "@mui/material/Drawer";
-import Typography from "@mui/material/Typography";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import { ListItemText, ListItemButton, ListItemIcon } from "@mui/material";
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
-import MediaCard from "@/components/MediaCard";
+
 
 import Nav from "../components/Nav bar/nav";
 import Card from "@/components/Cards/card";
 import Link from "next/link";
 
-import HomeIcon from "@mui/icons-material/Home";
-import StarIcon from "@mui/icons-material/Star";
-import ChecklistIcon from "@mui/icons-material/Checklist";
+
 
 import Img1 from "../Files/shoes.jpg";
 import Img2 from "../Files/shoes2.jpg";
@@ -25,16 +17,16 @@ import Img4 from "../Files/pant.jpg";
 import Img5 from "../Files/pant2.jpg";
 import Img6 from "../Files/pant3.jpg";
 import Img7 from "../Files/pant4.jpg";
+import { Typography } from "@mui/material";
+
+import Sidebar from "@/components/Nav bar/sidebar";
 
 const DRAWER_WIDTH = 220;
 
-const LINKS = [
-  { text: "Home", href: "/", icon: HomeIcon },
-  { text: "Starred", href: "/starred", icon: StarIcon },
-  { text: "Tasks", href: "/tasks", icon: ChecklistIcon },
-];
 
-export default function HomePage() {
+
+export default function HomePage(item) {
+  
   return (
     <Nav>
       <Drawer
@@ -48,34 +40,22 @@ export default function HomePage() {
             top: ["48px", "56px", "64px"],
             height: "auto",
             bottom: 0,
-            // border:"none"
+            // border:"none",
+            mt: ["38px", "46px", "54px"],
           },
         }}
         variant="permanent"
         anchor="left"
       >
-        <List>
-          {LINKS.map(({ text, href, icon: Icon }) => (
-            <ListItem key={href} disablePadding>
-              <ListItemButton component={Link} href={href}>
-                <ListItemIcon>
-                  <Icon />
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-          <ListItem>
-            <ListItemButton>
-              <ListItemText primary="Category" />
-            </ListItemButton>
-          </ListItem>
-        </List>
+        <Box>
+          <Typography>Categories</Typography>
+          <Sidebar />
+        </Box>
       </Drawer>
       <Box sx={{ display: "flex" }}>
-        <Grid container spacing={2}>
+        <Grid container spacing={{xs:2, xl:3}}>
           {data.map((item) => (
-            <Grid item xs={10} sm={5} md={3}>
+            <Grid item xs={10} sm={5} md={3} lg={3} xl={2.4}>
               <Card key={item.id} item={item} />
             </Grid>
           ))}
