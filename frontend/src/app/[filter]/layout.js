@@ -1,5 +1,5 @@
-import Nav from "@/components/Nav bar/nav";
-import Sidebar from "@/components/Nav bar/sidebar";
+import Nav from "@/components/layouts/nav";
+import Sidebar from "@/components/layouts/sidebar";
 import { Drawer, Box } from "@mui/material";
 
 const DRAWER_WIDTH = 220;

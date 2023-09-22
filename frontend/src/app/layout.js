@@ -1,14 +1,14 @@
 import * as React from "react";
 import ThemeRegistry from "@/components/ThemeRegistry/ThemeRegistry";
+import Provider from "../redux/provider";
 
-import Nav from "@/components/Nav bar/nav";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
         <ThemeRegistry>
-          {children}
+          <Provider>{children}</Provider>
         </ThemeRegistry>
       </body>
     </html>

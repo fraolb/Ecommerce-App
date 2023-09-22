@@ -22,26 +22,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import { IconButton, TextField, Divider } from "@mui/material";
+import { IconButton, TextField, Divider, Grid } from "@mui/material";
 import Image from "next/image";
-import Logo from '../../Files/logo.png'
+import Logo from "../../Files/logo.png";
 
-
-const DRAWER_WIDTH = 220;
-
-const LINKS = [
-  { text: "Home", href: "/", icon: HomeIcon },
-  { text: "Starred", href: "/starred", icon: StarIcon },
-  { text: "Tasks", href: "/tasks", icon: ChecklistIcon },
-];
-
-const PLACEHOLDER_LINKS = [
-  { text: "Settings", icon: SettingsIcon },
-  { text: "Support", icon: SupportIcon },
-  { text: "Logout", icon: LogoutIcon },
-];
-
-const Nav = ({ children }) => {
+const Nav = () => {
   return (
     <Box>
       <AppBar position="fixed" sx={{ zIndex: 2000 }}>
@@ -87,7 +72,7 @@ const Nav = ({ children }) => {
             </IconButton>
           </Box>
           <Box>
-            <IconButton component={Link} href={'./auth/login'} >
+            <IconButton component={Link} href={"./auth/login"}>
               <AccountCircleOutlinedIcon />
             </IconButton>
             <IconButton>
@@ -107,19 +92,6 @@ const Nav = ({ children }) => {
           <Box>Hello there </Box>
         </Box>
       </AppBar>
-
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          bgcolor: "background.default",
-          ml: `${DRAWER_WIDTH}px`,
-          mt: ["68px", "76px", "94px"],
-          p: 3,
-        }}
-      >
-        {children}
-      </Box>
     </Box>
   );
 };

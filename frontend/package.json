@@ -14,10 +14,17 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "@reduxjs/toolkit": "^1.9.5",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "next": "latest",
+    "next-cloudinary": "^4.22.0",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-multi-carousel": "^2.8.4",
+    "react-redux": "^8.1.2",
+    "react-responsive-carousel": "^3.2.23",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
   }
 }
