@@ -22,9 +22,19 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import { IconButton, TextField, Divider, Grid } from "@mui/material";
+import {
+  IconButton,
+  TextField,
+  Divider,
+  Grid,
+  Button,
+  Menu,
+  MenuItem,
+} from "@mui/material";
 import Image from "next/image";
 import Logo from "../../Files/logo.png";
+
+import MenuBtn from "./menu";
 
 const Nav = () => {
   return (
@@ -55,7 +65,8 @@ const Nav = () => {
               pl: "1%",
               pr: "1%",
 
-              border: "1px #a0a0a0 solid",
+              border: "1px solid",
+              borderColor: "primary.main",
             }}
           >
             <TextField
@@ -66,9 +77,14 @@ const Nav = () => {
                 disableUnderline: true,
               }}
             />
-            <Divider orientation="vertical" variant="middle" flexItem />
+            <Divider
+              orientation="vertical"
+              sx={{ bgcolor: "primary.light" }}
+              variant="middle"
+              flexItem
+            />
             <IconButton>
-              <SearchIcon />
+              <SearchIcon color="success" />
             </IconButton>
           </Box>
           <Box>
@@ -84,12 +100,29 @@ const Nav = () => {
           sx={{
             backgroundColor: "background.paper",
             display: "flex",
-            justifyContent: "space-between",
-            borderTop: "1px #a0a0a0 solid",
+            // justifyContent: "center",
+            borderTop: "1px solid",
+            borderColor: "primary.light",
             minHeight: "40px",
+            pl: "2%",
+            pr: "2%",
           }}
         >
-          <Box>Hello there </Box>
+          <Box>
+            <MenuBtn />
+          </Box>
+          <Box color={"primary.main"} component={Link} href={"/sport"} sx={{textDecoration:'none', pt:"5px", ml:"10px", mr:"10px"}}>
+            Fashion
+          </Box>
+          <Box color={"primary.main"} component={Link} href={"/sport"} sx={{textDecoration:'none', pt:"5px", ml:"10px", mr:"10px"}}>
+           Shoes
+          </Box>
+          <Box color={"primary.main"} component={Link} href={"/sport"} sx={{textDecoration:'none', pt:"5px", ml:"10px", mr:"10px"}}>
+            Kids
+          </Box>
+          <Box color={"primary.main"} component={Link} href={"/sport"} sx={{textDecoration:'none', pt:"5px", ml:"10px", mr:"10px"}}>
+            Sports
+          </Box>
         </Box>
       </AppBar>
     </Box>

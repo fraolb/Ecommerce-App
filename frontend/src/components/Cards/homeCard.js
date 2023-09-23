@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 
-import Img1 from "../../Files/pant2.jpg";
+import Img1 from "../../Files/pant4.jpg";
 
 const HomeCard = () => {
   return (
