@@ -6,7 +6,10 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { CldImage } from "next-cloudinary";
+import FraolImg from "../../Files/imgFraol.png";
+import GabiImg from "../../Files/Asna.png";
 
 const CarouselCard = () => {
   const settings = {
@@ -17,7 +20,7 @@ const CarouselCard = () => {
     autoplaySpeed: 5000, // Auto-slide interval in milliseconds (5 seconds in this example)
     slidesToShow: 1, // Number of slides to show at a time
     slidesToScroll: 1, // Number of slides to scroll at a time
-    arrows: false
+    arrows: false,
   };
   return (
     <Slider {...settings}>
@@ -30,7 +33,7 @@ const CarouselCard = () => {
               md: "340px",
               lg: "440px",
             },
-            cursor:"grab"
+            cursor: "grab",
           }}
           key={item.id}
         >
@@ -57,13 +60,16 @@ const CarouselCard = () => {
           <Box
             sx={{
               position: "relative",
-              top: "-240px", // Adjust this value as needed to position the second Box
+              top: "-270px", // Adjust this value as needed to position the second Box
               zIndex: 1, // Set a higher z-index to place it on top
               padding: "10px", // Add padding as desired
+              width: "60%",
+              // border: "solid",
             }}
           >
-            <Typography>{item.text}</Typography>
-            <Button>Go To</Button>
+            <Typography  color={'textColor1.main'} sx={{fontSize:{xs:'20px', sm:"25px"}}}>{item.text}</Typography>
+            {/* <Typography variant="h5">{item.title}</Typography> */}
+            <Button variant="contained" sx={{mt:2}} endIcon={<ArrowRightAltIcon />}>Go To</Button>
           </Box>
         </Box>
       ))}
@@ -76,23 +82,20 @@ export default CarouselCard;
 const responsive = [
   {
     id: 1,
-    title: "Swiper Carousel Example",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quos mollitia sed quod consectetur at quam dolore praesentium neque eos assumenda iusto nam laborum laboriosam odio blanditiis possimus accusantium recusandae porro exercitationem itaque",
-    imageUrl:
-      "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+    title: "Fraol Bereket (Website Developer)",
+    text: "If you want an Ecommerce website that has a smooth look and responsive design contact me",
+    imageUrl: FraolImg,
   },
   {
     id: 2,
-    title: "Swiper Carousel Example",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quos mollitia sed quod consectetur at quam dolore praesentium neque eos assumenda iusto nam laborum laboriosam odio blanditiis possimus accusantium recusandae porro exercitationem itaque",
-    imageUrl:
-      "https://plus.unsplash.com/premium_photo-1664391847942-f9c4562ad692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1966&q=80",
+    title: "Fraol Bereket (Website Developer)",
+    text: "If you want an Ecommerce website that has a smooth look and responsive design contact me",
+    imageUrl: GabiImg,
   },
   {
     id: 3,
-    title: "Swiper Carousel Example",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quos mollitia sed quod consectetur at quam dolore praesentium neque eos assumenda iusto nam laborum laboriosam odio blanditiis possimus accusantium recusandae porro exercitationem itaque",
-    imageUrl:
-      "https://images.unsplash.com/photo-1509281373149-e957c6296406?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1928&q=80",
+    title: "Fraol Bereket (Website Developer)",
+    text: "If you want an Ecommerce website that has a smooth look and responsive design contact me",
+    imageUrl: FraolImg,
   },
 ];

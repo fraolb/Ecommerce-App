@@ -35,6 +35,8 @@ import Image from "next/image";
 import Logo from "../../Files/logo.png";
 
 import MenuBtn from "./menu";
+import Search from "./search";
+import NavRightSide from "./navRightSide";
 
 const Nav = () => {
   return (
@@ -57,52 +59,42 @@ const Nav = () => {
             height={50}
             alt="Logo of Addis Couture"
           />
-          <Box
-            width={"50%"}
-            display={"flex"}
-            sx={{
-              borderRadius: "30px",
-              pl: "1%",
-              pr: "1%",
-
-              border: "1px solid",
-              borderColor: "primary.main",
-            }}
-          >
-            <TextField
-              variant="standard"
-              fullWidth
-              sx={{ mt: "5px" }}
-              InputProps={{
-                disableUnderline: true,
-              }}
-            />
-            <Divider
-              orientation="vertical"
-              sx={{ bgcolor: "primary.light" }}
-              variant="middle"
-              flexItem
-            />
-            <IconButton>
-              <SearchIcon color="success" />
-            </IconButton>
+          <Box width={"50%"} sx={{ display: { xs: "none", sm: "flex" } }}>
+            <Search />
           </Box>
           <Box>
-            <IconButton component={Link} href={"./auth/login"}>
-              <AccountCircleOutlinedIcon />
-            </IconButton>
-            <IconButton>
-              <ShoppingCartOutlinedIcon />
-            </IconButton>
+            <NavRightSide />
           </Box>
         </Toolbar>
         <Box
           sx={{
             backgroundColor: "background.paper",
+            display: { xs: "flex", sm: "none" },
+            // justifyContent: "center",
+
+            borderColor: "primary.light",
+            minHeight: "40px",
+            pl: "2%",
+            pr: "2%",
+            pt: 1,
+          }}
+        >
+          <Search />
+        </Box>
+        <Box
+          sx={{
+            borderTop: "1px solid",
+            display: { xs: "none", sm: "flex" },
+            borderColor: "primary.light",
+          }}
+        ></Box>
+        <Box
+          sx={{
+            backgroundColor: "background.paper",
             display: "flex",
             // justifyContent: "center",
-            borderTop: "1px solid",
-            borderColor: "primary.light",
+
+            // borderColor: "primary.light",
             minHeight: "40px",
             pl: "2%",
             pr: "2%",
@@ -111,16 +103,36 @@ const Nav = () => {
           <Box>
             <MenuBtn />
           </Box>
-          <Box color={"primary.main"} component={Link} href={"/sport"} sx={{textDecoration:'none', pt:"5px", ml:"10px", mr:"10px"}}>
+          <Box
+            color={"primary.main"}
+            component={Link}
+            href={"/sport"}
+            sx={{ textDecoration: "none", pt: "5px", ml: "10px", mr: "10px" }}
+          >
             Fashion
           </Box>
-          <Box color={"primary.main"} component={Link} href={"/sport"} sx={{textDecoration:'none', pt:"5px", ml:"10px", mr:"10px"}}>
-           Shoes
+          <Box
+            color={"primary.main"}
+            component={Link}
+            href={"/sport"}
+            sx={{ textDecoration: "none", pt: "5px", ml: "10px", mr: "10px" }}
+          >
+            Shoes
           </Box>
-          <Box color={"primary.main"} component={Link} href={"/sport"} sx={{textDecoration:'none', pt:"5px", ml:"10px", mr:"10px"}}>
+          <Box
+            color={"primary.main"}
+            component={Link}
+            href={"/sport"}
+            sx={{ textDecoration: "none", pt: "5px", ml: "10px", mr: "10px" }}
+          >
             Kids
           </Box>
-          <Box color={"primary.main"} component={Link} href={"/sport"} sx={{textDecoration:'none', pt:"5px", ml:"10px", mr:"10px"}}>
+          <Box
+            color={"primary.main"}
+            component={Link}
+            href={"/sport"}
+            sx={{ textDecoration: "none", pt: "5px", ml: "10px", mr: "10px" }}
+          >
             Sports
           </Box>
         </Box>

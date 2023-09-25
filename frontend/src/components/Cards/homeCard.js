@@ -25,7 +25,7 @@ const HomeCard = () => {
       // href={'/filer'}
     >
       <Box>
-        <Typography variant="h6" color={"#045933"}>
+        <Typography variant="h6" color={'textColor1.main'}>
           Fashionable cloths
         </Typography>
       </Box>

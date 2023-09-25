@@ -6,6 +6,7 @@ import FullLayout from "@/components/layouts/fullLayout";
 import Link from "next/link";
 import HomeCard from "@/components/Cards/homeCard";
 import Carousel from "@/components/carousel/carouselCard";
+import HomeCardWide from "@/components/Cards/homeCardWide";
 
 export default function HomePage(item) {
   return (
@@ -42,6 +43,20 @@ export default function HomePage(item) {
           </Grid>
         </Grid>
 
+        <Grid container spacing={{ xs: 2, xl: 3 }}>
+          <Grid item xs={12} sm={6} md={4} lg={4} xl={4}>
+            <HomeCard />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={4} xl={4}>
+            <HomeCard />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={4} xl={4}>
+            <HomeCard />
+          </Grid>
+        </Grid>
+        <Box>
+          <HomeCardWide />
+        </Box>
         <Grid container spacing={{ xs: 2, xl: 3 }}>
           <Grid item xs={12} sm={6} md={4} lg={4} xl={4}>
             <HomeCard />

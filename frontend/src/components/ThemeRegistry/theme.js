@@ -24,6 +24,10 @@ const theme = createTheme({
     },
     bgcolor1:{
       main: "#A0ECCA"
+    },
+    textColor1: {
+      main:"#045933",
+      light: "#2E8D5A"
     }
   },
   typography: {
