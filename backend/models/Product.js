@@ -17,12 +17,15 @@ const productSchema = new mongoose.Schema(
       type: String,
       enum: [
         "Bag",
+        "Hat",
+        "Belt",
+        "Sunglass",
+        "Jewelry",
         "Dress",
+        "Suit",
         "Jacket",
         "Shirt",
-        "Jewelry",
         "Sweater",
-        "Sunglass",
         "Shoes",
         "Pant",
         "Other"
