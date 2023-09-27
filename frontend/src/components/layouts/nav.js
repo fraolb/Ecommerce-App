@@ -53,12 +53,15 @@ const Nav = () => {
           {/* <DashboardIcon
             sx={{ color: "#444", mr: 2, transform: "translateY(-2px)" }}
           /> */}
-          <Image
-            src={Logo}
-            width={150}
-            height={50}
-            alt="Logo of Addis Couture"
-          />
+          <Link href={"/#"}>
+            <Image
+              src={Logo}
+              width={150}
+              height={50}
+              alt="Logo of Addis Couture"
+            />
+          </Link>
+
           <Box width={"50%"} sx={{ display: { xs: "none", sm: "flex" } }}>
             <Search />
           </Box>

@@ -12,6 +12,7 @@ import {
   ListItemText,
   Drawer,
   Icon,
+  Typography,
 } from "@mui/material";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
@@ -75,6 +76,11 @@ const NavRightSide = () => {
               />
             </Box>
           </Box>
+
+          <Box mt={2}>
+            <Typography textAlign={'center'}>fraolbereket@gmail.com</Typography>
+          </Box>
+
           <List>
             {profileMenus.map((item) => (
               <ListItem disablePadding key={item.id}>

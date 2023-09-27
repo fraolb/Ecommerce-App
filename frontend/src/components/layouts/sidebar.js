@@ -5,7 +5,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Box, Typography } from "@mui/material";
 const categories = ["Cloth", "Shoes", "Pants", "Tshirt"];
-const prices = [1000, 2000, 3000, 4000];
+const prices = [
+  "Less than 1000$",
+  "1000$ - 2000$",
+  "2000$ - 3000$",
+  "3000$ - 4000$",
+  "> 4000$",
+];
 
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -35,7 +41,7 @@ const Sidebar = () => {
         ? dispatch(removeFromPrice(value))
         : dispatch(addToPrice(value));
     }
-  
+
     let data = [];
     category.length > 0 ? data.push(category) : null;
     price.length > 0 ? data.push(price) : null;
@@ -44,29 +50,47 @@ const Sidebar = () => {
   };
 
   return (
-    <Box>
-      <Typography variant="h6">Categories</Typography>
-      {categories.map((category) => (
-        <Typography
-          key={category}
-          onClick={() => handleFilter("category", category)}
-          textAlign={"center"}
-        >
-          {category}
-        </Typography>
-      ))}
+    <Box sx={{ pl: "4%" }}>
+      <Typography variant="h6" color={"textColor1.main"}>
+        Categories
+      </Typography>
+      <Box sx={{ display: "flex", width: "100%", flexWrap: "wrap" }}>
+        {categories.map((category) => (
+          <Typography
+            key={category}
+            onClick={() => handleFilter("category", category)}
+            textAlign={"center"}
+            sx={{
+              bgcolor: "bgcolor1.main",
+              pl: "2%",
+              pr: "2%",
+              mr: "2%",
+              ml: "2%",
+              mb: "2%",
+              mt: "2%",
+              borderRadius: "5px",
+            }}
+          >
+            {category}
+          </Typography>
+        ))}
+      </Box>
 
-      <Typography variant="h6">Price</Typography>
-      {prices.map((priceValue) => (
-        <Typography
-          key={priceValue}
-          onClick={() => handleFilter("price", priceValue)}
-          textAlign={"center"}
-          bgcolor={price.includes(priceValue) ? "primary.light" : "unset"}
-        >
-          {priceValue}
-        </Typography>
-      ))}
+      <Typography variant="h6" color={"textColor1.main"}>
+        Price
+      </Typography>
+      <Box>
+        {prices.map((priceValue) => (
+          <Typography
+            key={priceValue}
+            color={"textColor1.main"}
+            onClick={() => handleFilter("price", priceValue)}
+            textAlign={"left"}
+          >
+             {priceValue}
+          </Typography>
+        ))}
+      </Box>
     </Box>
   );
 };

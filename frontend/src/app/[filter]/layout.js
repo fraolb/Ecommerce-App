@@ -10,16 +10,17 @@ export default function DashboardLayout({ children }) {
       <Drawer
         sx={{
           width: DRAWER_WIDTH,
-
+          display:{xs:'none', md:'block'},
           flexShrink: 0,
           "& .MuiDrawer-paper": {
-            width: DRAWER_WIDTH,
+            width:DRAWER_WIDTH,
             boxSizing: "border-box",
             top: ["48px", "56px", "64px"],
             height: "auto",
             bottom: 0,
             // border: "none",
             mt: ["38px", "46px", "54px"],
+            
           },
         }}
         variant="permanent"

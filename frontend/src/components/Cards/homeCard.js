@@ -2,9 +2,8 @@ import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 
-import Img1 from "../../Files/pant4.jpg";
 
-const HomeCard = () => {
+const HomeCard = ({ item }) => {
   return (
     <Box
       sx={{
@@ -17,16 +16,14 @@ const HomeCard = () => {
           lg: "440px",
         },
         // border: "solid",
-        cursor:'pointer',
-        
-
+        cursor: "pointer",
       }}
       // component={Link}
       // href={'/filer'}
     >
       <Box>
-        <Typography variant="h6" color={'textColor1.main'}>
-          Fashionable cloths
+        <Typography variant="h6" color={"textColor1.main"}>
+          {item.name}
         </Typography>
       </Box>
       <Box
@@ -43,10 +40,14 @@ const HomeCard = () => {
           objectFit: "cover",
         }}
       >
-        <Image src={Img1} fill={true} alt="addis couture product" />
+        <Link href={item.route}>
+          <Image src={item.imgLink} fill={true} alt="addis couture product" />
+        </Link>
       </Box>
       <Box>
-        <Typography color={"primary.main"}>Shop now</Typography>
+        <Typography color={"primary.main"} component={Link} href={item.route}>
+          Shop now
+        </Typography>
       </Box>
     </Box>
   );

@@ -3,6 +3,7 @@ import Nav from "@/components/layouts/nav";
 import { Box, Drawer, Typography, Grid } from "@mui/material";
 import Counter from "./counter";
 import Card from "@/components/Cards/card";
+import FullLayout from "@/components/layouts/fullLayout";
 
 import Img1 from "../../Files/shoes.jpg";
 import Img2 from "../../Files/shoes2.jpg";
@@ -18,25 +19,21 @@ const FilteredItem = ({ params }) => {
   const data1 = params.filter;
   console.log("the data is ", data1);
   return (
-    <Box sx={{  ml: `${DRAWER_WIDTH}px`,}}>
-      
-      <Box sx={{ display: "flex" }}>
-        the data contains {data1}
-      </Box>
-      <Counter />
-      <Grid container spacing={{xs:2, xl:3}}>
+    <FullLayout>
+      <Box sx={{ mt: {xs:"43%", sm:'18%', md:'16%', lg:'10%'}, p:'1%' }}>
+        <Grid container spacing={{ xs: 2, xl: 3 }} >
           {data.map((item) => (
-            <Grid item xs={10} sm={5} md={3} lg={3} xl={2.4}>
+            <Grid item xs={6} sm={4} md={4} lg={3} xl={2.4}>
               <Card key={item.id} item={item} />
             </Grid>
           ))}
         </Grid>
-    </Box>
+      </Box>
+    </FullLayout>
   );
 };
 
 export default FilteredItem;
-
 
 const data = [
   {
