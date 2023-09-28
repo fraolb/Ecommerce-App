@@ -63,7 +63,23 @@ const productSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-
+    featured: {
+      type: Boolean,
+      default: false,
+    },
+    inventory: {
+      type: Number,
+      required: true,
+      default: 15,
+    },
+    averageRating: {
+      type: Number,
+      default: 0,
+    },
+    numOfReviews: {
+      type: Number,
+      default: 0,
+    },
     images: [
       {
         public_id: {
