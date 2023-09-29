@@ -1,7 +1,9 @@
 const User = require("../models/User");
 const UserVerification = require("../models/UserVerification");
+const sendEmailVerification = require('../utils/otpVerification')
 const { StatusCodes } = require("http-status-codes");
 const { UnauthenticatedError, BadRequestError } = require("../errors");
+const nodemailer = require('nodemailer')
 
 const register = async (req, res) => {
   const { name, email, password } = req.body;
@@ -13,20 +15,24 @@ const register = async (req, res) => {
   };
   const userVerification = await UserVerification.create(userV);
   // console.log(userVerification)
+  await sendEmailVerification(userVerification.otp, user.email)
   const token = user.createJwt();
   res
     .status(StatusCodes.CREATED)
-    .json({ token, user: { name: user.name, userotp: userVerification.otp } });
+    .json({ token, user: { name: user.name, userotp: userVerification.otp, message: 'OTP sent to your email address.' } });
 };
+
 
 const verifyUser = async (req, res) => {
   const { userId, name } = req.user;
   const {otp} = req.body
+  console.log(req.user)
   const user = await User.findOne({ _id: userId });
   if (!user) {
     throw new UnauthenticatedError("Invalid User");
   }
   const verifyUser = await UserVerification.findOne({ userId });
+  console.log(verifyUser)
   if (!verifyUser) {
     throw new UnauthenticatedError("Invalid User");
   }
@@ -39,6 +45,7 @@ const verifyUser = async (req, res) => {
     throw new UnauthenticatedError("Time for verification expired. Register again");
   }
 
+  await UserVerification.findOneAndRemove({userId})
   const updateUser = await User.findByIdAndUpdate(
     userId,
     { verified: true },
