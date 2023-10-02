@@ -1,7 +1,22 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Box, TextField, Divider, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { fetchDataBySearch } from "@/redux/slices/filterSlice";
+import { useRouter } from 'next/navigation'
 
 const Search = () => {
+  const [searchProduct, setSearchProduct]= useState("")
+  const dispatch = useDispatch()
+  const router = useRouter()
+
+  const handleSearch =()=>{
+    const data ={product : searchProduct}
+    dispatch(fetchDataBySearch(data))
+    router.push('/search', { scroll: false })
+  }
   return (
     <Box
       width={"100%"}
@@ -21,6 +36,8 @@ const Search = () => {
         InputProps={{
           disableUnderline: true,
         }}
+        value={searchProduct}
+        onChange={(e)=>setSearchProduct(e.target.value)}
       />
       <Divider
         orientation="vertical"
@@ -28,7 +45,7 @@ const Search = () => {
         variant="middle"
         flexItem
       />
-      <IconButton>
+      <IconButton onClick={()=>handleSearch()}>
         <SearchIcon color="success" />
       </IconButton>
     </Box>

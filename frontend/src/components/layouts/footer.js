@@ -9,7 +9,7 @@ const Footer = () => {
         bgcolor: "#22655c",
         pl: "5%",
         pr: "5%",
-        // border:"solid"
+        // border:"3px red solid"
       }}
     >
       <Grid

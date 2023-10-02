@@ -30,7 +30,10 @@ export default function DashboardLayout({ children }) {
           <Sidebar />
         </Box>
       </Drawer>
+      <Box sx={{flexGrow:1}}>
       {children}
+      </Box>
+      
     </section>
   );
 }

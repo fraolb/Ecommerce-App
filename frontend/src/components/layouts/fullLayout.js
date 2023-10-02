@@ -12,6 +12,7 @@ const FullLayout = ({ children }) => {
         sx={{
           flexGrow: 1,
           // bgcolor: "background.default",
+          // pb: 4,
         }}
       >
         {children}

@@ -4,6 +4,8 @@ import { Box, Drawer, Typography, Grid } from "@mui/material";
 import Counter from "./counter";
 import Card from "@/components/Cards/card";
 import FullLayout from "@/components/layouts/fullLayout";
+import DataView from "./dataView";
+import { Suspense } from "react";
 
 import Img1 from "../../Files/shoes.jpg";
 import Img2 from "../../Files/shoes2.jpg";
@@ -12,22 +14,37 @@ import Img4 from "../../Files/pant.jpg";
 import Img5 from "../../Files/pant2.jpg";
 import Img6 from "../../Files/pant3.jpg";
 import Img7 from "../../Files/pant4.jpg";
+import Loading from "./loading";
 
 const DRAWER_WIDTH = 220;
 
-const FilteredItem = ({ params }) => {
+// async function getData() {
+//   try {
+//     const res = await fetch('https://dummyjson.com/products/');
+
+//     const data = await res.json();
+//     console.log(data);
+//     return data;
+//   } catch (error) {
+//     // Handle errors here, such as logging the error or displaying an error message
+//     console.error(error);
+//     throw error; // You can rethrow the error if needed for higher-level error handling.
+//   }
+// }
+
+
+const FilteredItem = async({ params }) => {
   const data1 = params.filter;
   console.log("the data is ", data1);
+  // const dataFetched = await getData()
+  // console.log('fetched data are ', dataFetched)
   return (
     <FullLayout>
-      <Box sx={{ mt: {xs:"43%", sm:'18%', md:'16%', lg:'10%'}, p:'1%' }}>
-        <Grid container spacing={{ xs: 2, xl: 3 }} >
-          {data.map((item) => (
-            <Grid item xs={6} sm={4} md={4} lg={3} xl={2.4}>
-              <Card key={item.id} item={item} />
-            </Grid>
-          ))}
-        </Grid>
+      <Box sx={{ mt: {xs:"43%", sm:'18%', md:'16%', lg:'10%'}, p:'1%', pb:4, minHeight:"60vh",  }}>
+        {/* <Suspense fallback={<Loading />}> */}
+          <DataView filter={data1} />
+        {/* </Suspense> */}
+        
       </Box>
     </FullLayout>
   );
@@ -107,3 +124,4 @@ const data = [
     location: "Addis Ababa",
   },
 ];
+

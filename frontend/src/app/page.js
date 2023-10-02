@@ -12,7 +12,7 @@ export default function HomePage(item) {
   return (
     <FullLayout>
       <Box
-        sx={{ p: 3, bgcolor: "bgcolor1.main", mt: ["68px", "76px", "94px"] }}
+        sx={{ p: 3,pt:{xs:5, md:3}, pb:4, bgcolor: "bgcolor1.main", mt: ["68px", "76px", "94px"] }}
         id='#'
       >
         <Grid
@@ -75,35 +75,35 @@ const ClothingCategories = [
   {
     id: 1,
     name: "Women's Clothing",
-    route: "/womens",
+    route: "/womens-dresses",
     imgLink:
       "https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1980&q=80"
   },
   {
     id: 2,
     name: "Men's Clothing",
-    route: "/mens",
+    route: "/mens-shirts",
     imgLink:
       "https://images.unsplash.com/photo-1610652492500-ded49ceeb378?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
   },
   {
     id: 3,
     name: "Shoes",
-    route: "/shoes",
+    route: "/mens-shoes",
     imgLink:
       "https://images.unsplash.com/photo-1463100099107-aa0980c362e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
   },
   {
     id: 4,
     name: "Kids Collection",
-    route: "/kids",
+    route: "/smartphones",
     imgLink:
       "https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
   },
   {
     id: 5,
     name: "Accessories",
-    route: "/accessories",
+    route: "/laptops",
     imgLink:
       "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80",
   },
@@ -111,7 +111,7 @@ const ClothingCategories = [
   {
     id: 6,
     name: "Collection of Brands",
-    route: "/collection",
+    route: "/womens-jewellery",
     imgLink:
       "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1911&q=80",
   },
@@ -120,7 +120,7 @@ const ClothingCategories = [
 const NewArrival = {
   id: 0,
   name: "New Arrivals",
-  route: '/newArrivals',
+  route: '/all',
   imgLink:
     "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1972&q=80"
 };
