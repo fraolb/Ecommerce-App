@@ -4,7 +4,38 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Box, Typography } from "@mui/material";
-const categories = ["Cloth", "Shoes", "Pants", "Tshirt"];
+const categories = [
+  {
+    id: 1,
+    link: "/womens-dresses",
+    name: "Womens",
+  },
+  {
+    id: 2,
+    link: "/mens-shirts",
+    name: "Mens",
+  },
+  {
+    id: 3,
+    link: "/mens-shoes",
+    name: "Shoes",
+  },
+  {
+    id: 4,
+    link: "/womens-jewellery",
+    name: "Jewelleries",
+  },
+  {
+    id: 5,
+    link: "/laptops",
+    name: "Accessories",
+  },
+  {
+    id: 6,
+    link: "/smartphones",
+    name: "Kids",
+  },
+];
 const prices = [
   "Less than 1000$",
   "1000$ - 2000$",
@@ -56,10 +87,8 @@ const Sidebar = () => {
       </Typography>
       <Box sx={{ display: "flex", width: "100%", flexWrap: "wrap" }}>
         {categories.map((category) => (
-          <Typography
-            key={category}
-            onClick={() => handleFilter("category", category)}
-            textAlign={"center"}
+          <Box
+            key={category.id}
             sx={{
               bgcolor: "bgcolor1.main",
               pl: "2%",
@@ -71,8 +100,15 @@ const Sidebar = () => {
               borderRadius: "5px",
             }}
           >
-            {category}
-          </Typography>
+            <Typography
+             
+              onClick={() => handleFilter("category", category)}
+              textAlign={"center"}
+              sx={{cursor:"pointer", color:"textColor1.main"}}
+            >
+              {category.name}
+            </Typography>
+          </Box>
         ))}
       </Box>
 
@@ -87,7 +123,7 @@ const Sidebar = () => {
             onClick={() => handleFilter("price", priceValue)}
             textAlign={"left"}
           >
-             {priceValue}
+            {priceValue}
           </Typography>
         ))}
       </Box>

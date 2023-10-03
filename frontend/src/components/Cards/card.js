@@ -3,6 +3,7 @@ import Image from "next/image";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ItemImg from "../../Files/shoes.jpg";
 import { Suspense } from "react";
+import Link from "next/link";
 
 const Card = ({ item }) => {
   return (
@@ -19,6 +20,7 @@ const Card = ({ item }) => {
         }}
         component={Paper}
       >
+        <Link href={`/${item.title}/${item.id}`} style={{textDecoration:'none', color:'#2E8D5A'}}>
         <Box
           sx={{
             height: {
@@ -67,6 +69,7 @@ const Card = ({ item }) => {
             <Typography fontSize={"14px"}>{item.brand}</Typography>
           </Box>
         </Box>
+        </Link>
       </Box>
     </Suspense>
   );
