@@ -26,16 +26,21 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 import LogoutIcon from "@mui/icons-material/Logout";
 
+import { useSelector } from "react-redux";
+import { useRouter } from 'next/navigation'
+
 const NavRightSide = () => {
   const [drawer, setDrawer] = useState(false);
+  const {count} = useSelector((state)=> state.cart)
+  const router = useRouter()
   const toggleDrawer = () => {
     setDrawer(!drawer);
   };
 
   return (
     <Box>
-      <IconButton>
-        <Badge badgeContent={4} color="primary">
+      <IconButton onClick={()=>router.push('/cart')}>
+        <Badge badgeContent={count} color="primary">
           <ShoppingCartOutlinedIcon />
         </Badge>
       </IconButton>

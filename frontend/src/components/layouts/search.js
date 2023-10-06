@@ -32,7 +32,7 @@ const Search = () => {
       <TextField
         variant="standard"
         fullWidth
-        sx={{ mt: "5px" }}
+        sx={{ mt: "5px", ml:'10px' }}
         InputProps={{
           disableUnderline: true,
         }}

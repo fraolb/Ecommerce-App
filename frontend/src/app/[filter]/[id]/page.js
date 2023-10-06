@@ -1,11 +1,12 @@
 "use client";
 
-
 import FullLayout from "@/components/layouts/fullLayout";
 import { Box, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import CarouselImg from "./CarouselImg";
 import CarouselCard from "@/components/carousel/carouselCard";
+import ImgView from "./imgView";
+import ImgDescription from "./imgDescription";
 
 async function getTicket(id) {
   const res = await fetch(`https://dummyjson.com/products/${id}`, {
@@ -28,22 +29,17 @@ const SinglePage = async ({ params }) => {
           p: "1%",
           pb: 4,
           minHeight: "60vh",
+          mb: 4
         }}
       >
-        <Grid container spacing={{ xs: 2, xl: 3 }} border={'solid'}>
-            <Grid item xs={12} sm={6} >
-                <Box border={'solid'} >
-                  {/* <CarouselImg images={product.images} alt={product.description} /> */}
-                  <CarouselCard />
-                </Box>
-                </Grid>
-            <Grid item xs={12} sm={6}>
-                <Typography>{product.title}</Typography>
-                <Typography>{product.description}</Typography>
-                <Typography>{product.brand}</Typography>
-            </Grid>
+        <Grid container spacing={{ xs: 2, xl: 3 }}>
+          <Grid item xs={12} sm={6} >
+            <ImgView images={product.images} />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <ImgDescription product={product} />
+          </Grid>
         </Grid>
-       
       </Box>
     </FullLayout>
   );
