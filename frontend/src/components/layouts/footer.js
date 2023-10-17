@@ -180,7 +180,11 @@ const resources = [
   },
   {
     name: "Contact Us",
-    link: "contactus",
+    link: "contactUs",
+  },
+  {
+    name: "Contact Developer",
+    link: "contactDeveloper",
   },
 ];
 

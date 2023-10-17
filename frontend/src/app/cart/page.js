@@ -12,11 +12,12 @@ import {
 import FullLayout from "@/components/layouts/fullLayout";
 import { useDispatch, useSelector } from "react-redux";
 import Item from "./item";
+import { clearCart } from "@/redux/slices/cartSlice";
 
 const Cart = () => {
   const { items, count } = useSelector((state) => state.cart);
   const [total, setTotal] = useState(0);
-
+  const dispatch = useDispatch()
   useEffect(() => {
     if (items.length < 1) return;
     // Initialize total amount
@@ -31,7 +32,7 @@ const Cart = () => {
       totalAmount += itemAmount;
     }
     setTotal(totalAmount);
-  }, []);
+  }, [items]);
 
   return (
     <FullLayout>
@@ -93,10 +94,10 @@ const Cart = () => {
                   mb: 2,
                 }}
               >
-                <Button color="error" sx={{ ml: 0 }}>
+                <Button color="error" sx={{ ml: 0 }} onClick={()=>dispatch(clearCart())}>
                   Clear Cart
                 </Button>
-                <Button variant="contained">Go to Payment</Button>
+                <Button variant="contained">Checkout</Button>
               </Box>
             </Box>
           )}
