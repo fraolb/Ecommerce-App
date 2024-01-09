@@ -1,7 +1,7 @@
 import { Box, Grid } from "@mui/material";
 import FullLayout from "@/components/layouts/fullLayout";
 import Image from "next/image";
-import FraolImage from "../../Files/fraol.jpg";
+import FraolImage from "@/Files/fraol.jpg";
 
 const ContactDev = () => {
   return (
